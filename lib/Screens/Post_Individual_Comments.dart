@@ -62,6 +62,8 @@ class _PostIndividualCommentState extends State<PostIndividualComment> {
       appBar: AppBar(
         title: Text('Comments'),
         centerTitle: true,
+        backgroundColor: Colors.deepPurple,
+        elevation: 0.0,
       ),
       body: data == null
           ? Center(
@@ -72,30 +74,37 @@ class _PostIndividualCommentState extends State<PostIndividualComment> {
               itemBuilder: (ctx, i) {
                 return Container(
                   padding: EdgeInsets.all(10),
+                  color: Colors.deepPurple,
                   height: 100,
-                  child: Card(
-                    elevation: 10.0,
-                    child: SingleChildScrollView(
-                      child: Column(
-                        children: <Widget>[
-                          Center(
-                            child: Text(
-                              "Name:  ${data[i]['name']}",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(10),
+                    child: Container(
+                      color: Colors.amber,
+                      child: Card(
+                        elevation: 10.0,
+                        child: SingleChildScrollView(
+                          child: Column(
+                            children: <Widget>[
+                              Center(
+                                child: Text(
+                                  "Name:  ${data[i]['name']}",
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
                               ),
-                            ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              Center(
+                                child: Text(
+                                  "Email:  ${data[i]['email']}",
+                                ),
+                              ),
+                            ],
                           ),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          Center(
-                            child: Text(
-                              "Email:  ${data[i]['email']}",
-                            ),
-                          ),
-                        ],
+                        ),
                       ),
                     ),
                   ),

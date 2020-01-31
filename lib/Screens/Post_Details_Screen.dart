@@ -80,37 +80,40 @@ class _PostDetailsState extends State<PostDetails> {
                     height: 200,
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(10),
-                      child: Card(
-                        elevation: 6.0,
-                        child: GestureDetector(
-                          child: Center(
-                            child: SingleChildScrollView(
-                              child: Column(
-                                children: <Widget>[
-                                  Text(
-                                    "Title:  ${data['title']}",
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.bold,
+                      child: Container(
+                        color: Colors.cyanAccent,
+                        child: Card(
+                          elevation: 10.0,
+                          child: GestureDetector(
+                            child: Center(
+                              child: SingleChildScrollView(
+                                child: Column(
+                                  children: <Widget>[
+                                    Text(
+                                      "Title:  ${data['title']}",
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                      ),
                                     ),
-                                  ),
-                                  SizedBox(
-                                    height: 30,
-                                  ),
-                                  Text(
-                                    "Body:  ${data['body']}",
-                                    // textAlign: TextAlign.center,
-                                  ),
-                                ],
+                                    SizedBox(
+                                      height: 30,
+                                    ),
+                                    Text(
+                                      "Body:  ${data['body']}",
+                                      // textAlign: TextAlign.center,
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
+                            onTap: () {
+                              Navigator.of(context).pushNamed(
+                                PostIndividualComment.routeName,
+                                arguments: data['id'],
+                              );
+                            },
                           ),
-                          onTap: () {
-                            Navigator.of(context).pushNamed(
-                              PostIndividualComment.routeName,
-                              arguments: data['id'],
-                            );
-                          },
                         ),
                       ),
                     ),

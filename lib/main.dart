@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:jobforflutter/Screens/SplashScreen.dart';
 import './Screens/Post_Details_Screen.dart';
 import './Screens/Post_Individual_Comments.dart';
-
-import 'Widgets/Post_Widget.dart';
 
 void main() => runApp(MyApp());
 
@@ -16,7 +15,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Post(),
+      home: SplashScreen(),
       routes: {
         PostDetails.routename: (ctx) => PostDetails(),
         PostIndividualComment.routeName: (ctx) => PostIndividualComment(),

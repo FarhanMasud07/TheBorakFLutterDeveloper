@@ -66,24 +66,27 @@ class _PostState extends State<Post> {
                 )
               : ClipRRect(
                   borderRadius: BorderRadius.circular(10),
-                  child: Card(
-                    elevation: 5.0,
-                    child: GestureDetector(
-                      child: Center(
-                        child: Text(
-                          "Title:  ${data[i]['title']}",
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
+                  child: Container(
+                    color: Colors.cyan,
+                    child: Card(
+                      elevation: 5.0,
+                      child: GestureDetector(
+                        child: Center(
+                          child: Text(
+                            "Title:  ${data[i]['title']}",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
+                        onTap: () {
+                          Navigator.of(context).pushNamed(
+                            PostDetails.routename,
+                            arguments: data[i]['id'],
+                          );
+                        },
                       ),
-                      onTap: () {
-                        Navigator.of(context).pushNamed(
-                          PostDetails.routename,
-                          arguments: data[i]['id'],
-                        );
-                      },
                     ),
                   ),
                 );
